@@ -77,6 +77,10 @@ class Post_Deployment_Hook_Public {
 				prune_super_cache( $cache_path, true );
 			}
 
+			if ( function_exists( 'w3tc_pgcache_flush' ) && $this->options['purge_w3_total_cache'] == true ) {
+				w3tc_pgcache_flush();
+			}
+
 			if ( isset($this->options['user_defined_function']) && function_exists($this->options['user_defined_function']) ) {
 				call_user_func($this->options['user_defined_function']);
 			}

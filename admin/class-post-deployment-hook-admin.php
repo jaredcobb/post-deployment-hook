@@ -159,6 +159,16 @@ class Post_Deployment_Hook_Admin {
 			);
 		}
 
+		if ( function_exists( 'w3tc_pgcache_flush' ) ) {
+			add_settings_field(
+				'purge_w3_total_cache',
+				'Automatically Purge W3 Total Cache',
+				array( $this, 'purge_w3_total_cache_callback' ),
+				$this->name . '-settings-page',
+				'general_config_section'
+			);
+		}
+
 		add_settings_field(
 			'user_defined_function', // id
 			'User Defined Function', // title
@@ -252,6 +262,19 @@ HTML;
 		echo <<<HTML
 			<input type="checkbox" id="purge-wp-supercache" name="{$this->name}-options[purge_wp_supercache]" value="1" {$purge_wp_supercache} />
 			<label for="purge-wp-supercache" class="description">Should we purge the cache from WP Supercache when the webhook is called?</label>
+HTML;
+	}
+
+	/**
+	 * Get the settings option array and print the w3 total cache
+	 */
+	public function purge_w3_total_cache_callback() {
+
+		$purge_w3_total_cache = isset( $this->options['purge_w3_total_cache'] ) ? 'checked="checked"' : '';
+
+		echo <<<HTML
+			<input type="checkbox" id="purge-w3_total_cache" name="{$this->name}-options[purge_w3_total_cache]" value="1" {$purge_w3_total_cache} />
+			<label for="purge-wp-supercache" class="description">Should we purge the cache from W3 Total Cache when the webhook is called?</label>
 HTML;
 	}
 
