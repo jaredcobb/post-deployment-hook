@@ -1,6 +1,6 @@
-=== Plugin Name ===
+=== Post Deployment Hook ===
 Contributors: jaredcobb
-Tags: hook, deployment
+Tags: hook, webhook, deployment, build
 Requires at least: 3.0.1
 Tested up to: 4.0
 Stable tag: trunk
