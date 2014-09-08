@@ -1,12 +1,11 @@
 <?php
-
 /**
  * Core plugin functionality class
  *
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the dashboard.
  *
- * @link       http://jaredcobb.com
+ * @link       https://github.com/jaredcobb/post-deployment-hook
  * @since      1.0.0
  *
  * @package    Post_Deployment_Hook
@@ -35,7 +34,7 @@ class Post_Deployment_Hook {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Post_Deployment_Hook_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Callback_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -83,7 +82,7 @@ class Post_Deployment_Hook {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Post_Deployment_Hook_Loader. Orchestrates the hooks of the plugin.
+	 * - Callback_Loader. Orchestrates the hooks of the plugin.
 	 * - Post_Deployment_Hook_i18n. Defines internationalization functionality.
 	 * - Post_Deployment_Hook_Admin. Defines all hooks for the dashboard.
 	 * - Post_Deployment_Hook_Public. Defines all hooks for the public side of the site.
@@ -100,7 +99,7 @@ class Post_Deployment_Hook {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-post-deployment-hook-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-callback-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
@@ -119,7 +118,7 @@ class Post_Deployment_Hook {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-post-deployment-hook-public.php';
 
-		$this->loader = new Post_Deployment_Hook_Loader();
+		$this->loader = new Callback_Loader();
 
 	}
 
@@ -196,7 +195,7 @@ class Post_Deployment_Hook {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Post_Deployment_Hook_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Callback_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

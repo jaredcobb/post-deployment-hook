@@ -1,14 +1,15 @@
 <?php
-
 /**
  * Register all actions and filters for the plugin
  *
- * @link       http://jaredcobb.com
+ * @link       https://github.com/jaredcobb/post-deployment-hook
  * @since      1.0.0
  *
  * @package    Post_Deployment_Hook
  * @subpackage Post_Deployment_Hook/includes
  */
+
+if (!class_exists('Callback_Loader')):
 
 /**
  * Register all actions and filters for the plugin.
@@ -21,7 +22,7 @@
  * @subpackage Post_Deployment_Hook/includes
  * @author     Jared Cobb <wordpress@jaredcobb.com>
  */
-class Post_Deployment_Hook_Loader {
+final class Callback_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.
@@ -127,3 +128,5 @@ class Post_Deployment_Hook_Loader {
 	}
 
 }
+
+endif;

@@ -1,12 +1,11 @@
 <?php
-
 /**
  * Define the internationalization functionality
  *
  * Loads and defines the internationalization files for this plugin
  * so that its ready for translation.
  *
- * @link       http://jaredcobb.com
+ * @link       https://github.com/jaredcobb/post-deployment-hook
  * @since      1.0.0
  *
  * @package    Post_Deployment_Hook

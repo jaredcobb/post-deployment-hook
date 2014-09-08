@@ -1,9 +1,8 @@
 <?php
-
 /**
  * The dashboard-specific functionality of the plugin.
  *
- * @link       http://jaredcobb.com
+ * @link       https://github.com/jaredcobb/post-deployment-hook
  * @since      1.0.0
  *
  * @package    Post_Deployment_Hook
@@ -13,8 +12,8 @@
 /**
  * The dashboard-specific functionality of the plugin.
  *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the dashboard-specific stylesheet and JavaScript.
+ * Defines the plugin name, version, and settings menu for
+ * the configuration of the post deployment hook
  *
  * @package    Post_Deployment_Hook
  * @subpackage Post_Deployment_Hook/admin
@@ -36,7 +35,7 @@ class Post_Deployment_Hook_Admin {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $name    The display name of this plugin.
+	 * @var      string    $display    The display name of this plugin.
 	 */
 	private $display_name;
 
@@ -91,6 +90,11 @@ class Post_Deployment_Hook_Admin {
 
 	}
 
+	/**
+	 * Creates the markup for the settings page and also populates the fields
+	 *
+	 * @since    1.0.0
+	 */
 	public function create_settings_page() {
 
 		?>
@@ -109,6 +113,11 @@ class Post_Deployment_Hook_Admin {
 		<?php
 	}
 
+	/**
+	 * Initializes & registers the settings page functionality including fields to define
+	 *
+	 * @since    1.0.0
+	 */
 	public function settings_page_init() {
 
 		register_setting(
@@ -160,6 +169,11 @@ class Post_Deployment_Hook_Admin {
 
 	}
 
+	/**
+	 * Validate the fields that were submitted
+	 *
+	 * @since    1.0.0
+	 */
 	public function sanitize( $input ) {
 
 		$sanitized_input = array();
@@ -184,6 +198,8 @@ class Post_Deployment_Hook_Admin {
 
 	/**
 	 * Print the Section text
+	 *
+	 * @since    1.0.0
 	 */
 	public function output_general_config_callback() {
 		echo <<<HTML
@@ -192,7 +208,9 @@ HTML;
 	}
 
 	/**
-	 * Get the settings option array and print one of its values
+	 * Get the settings option array and print the password
+	 *
+	 * @since    1.0.0
 	 */
 	public function password_callback() {
 
@@ -205,7 +223,7 @@ HTML;
 	}
 
 	/**
-	 * Get the settings option array and print one of its values
+	 * Get the settings option array and print the token url
 	 */
 	public function token_url_callback() {
 
@@ -225,7 +243,7 @@ HTML;
 	}
 
 	/**
-	 * Get the settings option array and print one of its values
+	 * Get the settings option array and print the wp supercache checkbox
 	 */
 	public function purge_wp_supercache_callback() {
 
@@ -238,7 +256,7 @@ HTML;
 	}
 
 	/**
-	 * Get the settings option array and print one of its values
+	 * Get the settings option array and print the user defined function textbox
 	 */
 	public function user_defined_function_callback() {
 

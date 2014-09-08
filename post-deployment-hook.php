@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @link              http://jaredcobb.com
+ * @link              https://github.com/jaredcobb/post-deployment-hook
  * @since             1.0.0
  * @package           Post_Deployment_Hook
  *
@@ -11,7 +10,7 @@
  * Description:       Creates a webhook listener in WordPress, useful for integrating a post-deployment hook from your build / deployment process
 
  * Version:           1.0.0
- * Author:            Jared Cobb
+ * Author:            Jared Cobb <wordpress@jaredcobb.com>
  * Author URI:        http://jaredcobb.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -36,7 +35,8 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/class-post-deployment-hook.
  */
 function run_post_deployment_hook() {
 
-	// in order to optimize this plugin, quickly exit if we already know there's no token call on a public page
+	// in order to optimize this plugin, quickly exit if we already know there's no token
+	// url parameter AND it's called on a public page
 	if (!is_admin() && !isset($_GET['tk'])) {
 		return;
 	}

@@ -1,9 +1,8 @@
 <?php
-
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       http://jaredcobb.com
+ * @link       https://github.com/jaredcobb/post-deployment-hook
  * @since      1.0.0
  *
  * @package    Post_Deployment_Hook
@@ -20,11 +19,11 @@
 class Post_Deployment_Hook_Public {
 
 	/**
-	 * The ID of this plugin.
+	 * The name of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $name    The ID of this plugin.
+	 * @var      string    $name    The name of this plugin.
 	 */
 	private $name;
 
@@ -54,12 +53,20 @@ class Post_Deployment_Hook_Public {
 	 * @var      string    $version    The version of this plugin.
 	 */
 	public function __construct( $name, $version ) {
+		// if we don't tell caching plugins to stop caching this request,
+		// we cannot ever call the hook a second time!
 		define( 'DONOTCACHEPAGE', true );
+
 		$this->name = $name;
 		$this->version = $version;
 		$this->options = get_option($this->name . '-options');
 	}
 
+	/**
+	 * Execute all of the actions for the webhook
+	 *
+	 * @since    1.0.0
+	 */
 	public function execute_webhook_actions() {
 
 		if (isset($_GET['tk']) && $this->validate_token($_GET['tk'])) {
@@ -75,6 +82,7 @@ class Post_Deployment_Hook_Public {
 			}
 
 		}
+
 	}
 
 	/**
