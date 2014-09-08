@@ -11,28 +11,31 @@ Creates a webhook listener in WordPress, useful for integrating a post-deploymen
 
 == Description ==
 
-If you have a build / deployment process for your site, it's often useful to have a way to
-execute code in your theme or plugins after you commit or deploy your code.
+If you have a build / deployment process for your site, it's often useful to have a way to execute code in your theme or plugins after you commit or deploy your code changes.
 
-Common use cases are
+Common uses are
 
-*   Purge the cache after you deploy new theme code (WP Super Cache or W3 Total Cache)
-*   Trigger a WordPress hook
-*   Run any other plugin or theme code you wish!
+* Purge the cache after you deploy new theme code (WP Super Cache or W3 Total Cache)
+* After you build your JavaScript/CSS, trigger a backup of the live site
+* Trigger any WordPress hook
+* Run any other plugin or theme code you wish!
 
 == Installation ==
 
 1. Upload the plugin folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Enter a passphrase to secure your webhook
+3. Enter a passphrase in the Settings > Post Deployment Hook options to secure your webhook
 4. Use the generated URL (including it's token) as your post-deployment / post-commit hook url
 
 == Frequently Asked Questions ==
 
 = Will this slow down my site? =
 
-Nope. While the plugin does execute on each page request, it simply checks if the request
-is a webhook call first. If not, it just exits.
+Nope. While the plugin does execute on each page request, it simply checks if the request is a webhook call first. If not, it just exits.
+
+= Who would use this plugin? =
+
+Probably developers. But anyone with some knowledge of WordPress could use this plugin to run jobs in WordPress by hitting the URL this plugin provides.
 
 == Screenshots ==
 
