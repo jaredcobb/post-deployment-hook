@@ -288,7 +288,7 @@ HTML;
 		echo <<<HTML
 			<input type="text" id="user-defined-function" name="{$this->name}-options[user_defined_function]" value="{$user_defined_function}" />
 			<p class="description">What is the function name that should be called when the webhook is fired? (This should provide you with the most flexible solution as you can defined a single function in <code>functions.php</code> and execute anything you wish).</p>
-			<strong><p class="description">Note: Enter your function like without parenthesis like so: <code>my_function_name</code></p></strong>
+			<strong><p class="description">Note: Enter your function without parenthesis like so: <code>my_function_name</code></p></strong>
 HTML;
 	}
 
