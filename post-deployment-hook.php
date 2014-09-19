@@ -9,7 +9,7 @@
  * Plugin URI:        http://jaredcobb.com/wordpress-post-deployment-hook/
  * Description:       Creates a webhook listener in WordPress, useful for integrating a post-deployment hook from your build / deployment process
 
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Jared Cobb <wordpress@jaredcobb.com>
  * Author URI:        http://jaredcobb.com/
  * License:           GPL-2.0+
